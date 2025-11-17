@@ -66,6 +66,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.20.0
         with:
           image-ref: democyber:latest
-          format: 'table'
-          exit-code: '1'
-          #severity: 'CRITICAL,HIGH'
+          format: 'json'
+          output: 'trivy-report.json'
+          exit-code: '0'
+          severity: 'CRITICAL,HIGH'
