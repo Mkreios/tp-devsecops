@@ -70,6 +70,11 @@ jobs:
           output: 'trivy-report.json'
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
+      - name: Upload Trivy report
+        uses: actions/upload-artifact@v4 # Use a specific version
+        with:
+           name: trivy-scan-report
+           path: trivy-report.json
       # Push Docker image sur Docker Hub
       - name: Push Docker image
         run: docker push $DOCKER_IMAGE_NAME
