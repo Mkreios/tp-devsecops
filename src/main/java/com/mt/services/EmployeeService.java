@@ -1,33 +1,28 @@
 package com.mt.services;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/employee")
 public class EmployeeService {
 
-	
-	@RequestMapping(value = "/getEmployeeDetails", method = RequestMethod.GET)
-	@ResponseBody
-	String uploadImage(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession)
-			throws JSONException {
+    @GetMapping("/getEmployeeDetails")
+    @ResponseBody
+    public Map<String, Object> getEmployeeDetails() {
 
-		JSONObject js = new JSONObject();
-		js.put("Name", "Mithun Technologies");
-		js.put("Calling Name", "Mithun");
-		js.put("DOB", "08-Nov-2011");
-		js.put("Hobbies", "Reading Technical Blogs,Teaching, Helping to Poor People..");
-		js.put("Places he like", "His native place");
+        Map<String, Object> response = new HashMap<>();
+        response.put("Name", "Mithun Technologies");
+        response.put("Calling Name", "Mithun");
+        response.put("DOB", "08-Nov-2011");
+        response.put("Hobbies", "Reading Technical Blogs, Teaching, Helping Poor People");
+        response.put("Places he like", "His native place");
 
-		return js.toString();
-}
+        return response;
+    }
 }
