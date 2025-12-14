@@ -1,4 +1,9 @@
-FROM tomcat:9.0-jdk11
-COPY target/maven-web-application.jar /usr/local/tomcat/webapps/maven-web-application.jar
+FROM eclipse-temurin:11-jre
+
+WORKDIR /app
+
+COPY target/maven-web-application.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+ENTRYPOINT ["java","-jar","app.jar"]
