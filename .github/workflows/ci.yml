@@ -1,6 +1,6 @@
 name: CI/CD - projectdevsecops
 
-# Trigger the workflow on push or pull request to main
+# Trigger the workflow on push or pull request to mainaa
 on:
   push:
     branches: [ main ]

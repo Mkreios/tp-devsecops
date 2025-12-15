@@ -2,7 +2,7 @@ FROM eclipse-temurin:11-jre
 
 WORKDIR /app
 
-COPY target/maven-web-application.jar app.jar
+COPY target/maven-web-application-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
